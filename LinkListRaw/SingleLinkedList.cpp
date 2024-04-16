@@ -1,5 +1,6 @@
 ﻿#include "SingleLinkedList.h"
 
+#include <algorithm>
 
 
 //List::List(){}
@@ -58,12 +59,30 @@ void List::RemoveOnIndex(int InIndex)
 void List::RemoveFirstElement()
 {
     Node * TempPtr = FirstElement;
-
+    if (Size > 1)
+    {
+        TempPtr = FirstElement;
+        FirstElement = FirstElement->Next;
+        delete TempPtr;
+        TempPtr = nullptr;
+    }
+    else if (Size == 1)
+    {
+        delete FirstElement;
+        FirstElement = nullptr;
+    }
+    else
+    {
+       std::cout <<  "Impossible to delete the first element, as the list is already empty \n";
+    }  
     if(TempPtr != nullptr)
     {
         TempPtr = nullptr;
     }
-    Size--;
+    if(Size>=1)
+    {
+        Size--;
+    }
 }
 
 

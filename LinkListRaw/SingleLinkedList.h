@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include <stdlib.h>
+#include <iostream>
 
 struct List
 {
@@ -17,7 +17,7 @@ public:
     void RemoveLastElement();
     void RemoveValue(int InValue);
     int * Get (int InIndex);
-
+    
     
     
     struct Node
@@ -26,3 +26,5 @@ public:
         Node* Next = nullptr;
     };
 };
+
+

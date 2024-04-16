@@ -4,13 +4,13 @@
 
 int main()
 {
-  List::List * List_Ptr = new List::List;
+  //List::List * List_Ptr = new List::List;
 
-  List_Ptr->Add(3);
-
-
+  //List_Ptr->Add(3);
 
 
-  delete List_Ptr;
+
+
+ // delete List_Ptr;
   return 0;
 }
