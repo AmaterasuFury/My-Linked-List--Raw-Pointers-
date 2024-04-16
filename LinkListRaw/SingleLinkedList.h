@@ -9,7 +9,7 @@ private:
     ~List();
     int Size = 0;
     Node * FirstElement = nullptr;
-
+    
 public:
     void Add(int InValue);
     void RemoveOnIndex (int InIndex);

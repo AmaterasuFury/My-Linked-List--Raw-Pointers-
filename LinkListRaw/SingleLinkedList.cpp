@@ -1,9 +1,9 @@
 ﻿#include "SingleLinkedList.h"
-
 #include <algorithm>
 
 
 //List::List(){}
+
 List::~List()
 {
     for (auto element : COLLECTION)
@@ -13,7 +13,7 @@ List::~List()
     }
     
 }
-
+    
 void List::Add(int InValue)
 {
     bool Added = false;
