@@ -6,18 +6,13 @@
 //List::List(){}
 List::~List()
 {
-    if(FirstElement->Next == nullptr)
+    for (auto element : COLLECTION)
     {
         delete FirstElement;
         FirstElement = nullptr;
     }
-    else
-    {
-        // make a logic to delete all of the elements; ??? or not?
-    }
+    
 }
-
-
 
 void List::Add(int InValue)
 {
@@ -47,18 +42,36 @@ void List::Add(int InValue)
 
 void List::RemoveOnIndex(int InIndex)
 {
-    Node * TempPtr = FirstElement;
-
-    for (int i = 0; i == InIndex; ++i)
+    if(Size ==0 || Size == 1)
     {
-        
+        RemoveFirstElement();
+        return;
+    }
+    else
+    {
+        Node * TempPtrToRemove = FirstElement;
+        Node * TempPtrToMoveThePtrToNext = nullptr;
+        for (int i = 0; i <= InIndex; ++i)
+        {
+            
+            if (i == InIndex-1)
+            {
+                TempPtrToMoveThePtrToNext = TempPtrToRemove;
+            }
+            TempPtrToRemove = TempPtrToRemove->Next;
+        }
+        TempPtrToMoveThePtrToNext->Next = TempPtrToRemove->Next;
+        delete TempPtrToRemove;
+        TempPtrToRemove = nullptr;
+        TempPtrToMoveThePtrToNext = nullptr;
+        Size --;
     }
     
 }
 
 void List::RemoveFirstElement()
 {
-    Node * TempPtr = FirstElement;
+    Node * TempPtr =nullptr;
     if (Size > 1)
     {
         TempPtr = FirstElement;
@@ -84,5 +97,33 @@ void List::RemoveFirstElement()
         Size--;
     }
 }
+
+void List::RemoveLastElement()
+{
+    if (Size >1)
+    {
+        Node * TempPtr = FirstElement;
+        bool IsLast = false;
+        while (!IsLast)
+        {
+            TempPtr = TempPtr->Next;
+            if (TempPtr->Next == nullptr)
+            {
+                IsLast = true;
+            }
+        }
+        delete TempPtr;
+        TempPtr = nullptr;
+    }
+    else if (Size == 1)
+    {
+        RemoveFirstElement();
+    }
+    else
+    {
+        std:: cout<< "It is impossible to delete the last element as the lise is already empty \n";
+    }
+}
+
 
 
