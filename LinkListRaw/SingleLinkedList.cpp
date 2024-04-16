@@ -4,25 +4,36 @@
 
 //List::List(){}
 
-List::~List()
+MyList::~MyList()
 {
-    for (auto element : COLLECTION)
+    Node * TempPtr = FirstElement;
+    bool TempBool = false;
+    while (!TempBool)
     {
+        TempPtr = FirstElement->Next;
         delete FirstElement;
-        FirstElement = nullptr;
+        FirstElement = TempPtr; 
+        if (FirstElement->Next == nullptr)
+        {
+            TempBool = true;
+        }
     }
-    
+    delete FirstElement;
+    delete TempPtr;
+    FirstElement = nullptr;
+    TempPtr = nullptr;
 }
-    
-void List::Add(int InValue)
+  
+void MyList::Add(int InValue)
 {
-    bool Added = false;
+    
     Node * TempPtr = FirstElement;
 
     if(Size == 0)
     {
         FirstElement = new Node;
         FirstElement->value = InValue;
+        Size++;
         return;
     }
     else
@@ -31,7 +42,8 @@ void List::Add(int InValue)
         {
             TempPtr = TempPtr->Next;
         }
-        TempPtr->value = InValue;
+        TempPtr->Next = new Node;
+        TempPtr->Next->value = InValue;
     }
     if(TempPtr != nullptr)
     {
@@ -40,7 +52,7 @@ void List::Add(int InValue)
     Size++;
 }
 
-void List::RemoveOnIndex(int InIndex)
+void MyList::RemoveOnIndex(int InIndex)
 {
     if(Size ==0 || Size == 1)
     {
@@ -69,7 +81,7 @@ void List::RemoveOnIndex(int InIndex)
     
 }
 
-void List::RemoveFirstElement()
+void MyList::RemoveFirstElement()
 {
     Node * TempPtr =nullptr;
     if (Size > 1)
@@ -98,7 +110,7 @@ void List::RemoveFirstElement()
     }
 }
 
-void List::RemoveLastElement()
+void MyList::RemoveLastElement()
 {
     if (Size >1)
     {

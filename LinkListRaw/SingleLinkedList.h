@@ -1,12 +1,12 @@
 ﻿#pragma once
 #include <iostream>
 
-struct List
+struct MyList
 {
 private:
     struct Node;
     //List();
-    ~List();
+    
     int Size = 0;
     Node * FirstElement = nullptr;
     
@@ -17,7 +17,7 @@ public:
     void RemoveLastElement();
     void RemoveValue(int InValue);
     int * Get (int InIndex);
-    
+    ~MyList();
     
     
     struct Node
