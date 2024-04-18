@@ -2,31 +2,27 @@
 #include <algorithm>
 
 
-//List::List(){}
 
 MyList::~MyList()
 {
-    Node * TempPtr = FirstElement;
-    bool TempBool = false;
-    while (!TempBool)
+    Node * TempPtr = nullptr;
+    while (FirstElement != nullptr)
     {
-        TempPtr = FirstElement->Next;
-        delete FirstElement;
-        FirstElement = TempPtr; 
-        if (FirstElement->Next == nullptr)
+        if (FirstElement->Next != nullptr)
         {
-            TempBool = true;
+            TempPtr = FirstElement->Next;
         }
+        
+        delete FirstElement;
+        int f = 3;
+        FirstElement = TempPtr;
     }
-    delete FirstElement;
-    delete TempPtr;
     FirstElement = nullptr;
     TempPtr = nullptr;
 }
   
 void MyList::Add(int InValue)
 {
-    
     Node * TempPtr = FirstElement;
 
     if(Size == 0)
@@ -115,14 +111,10 @@ void MyList::RemoveLastElement()
     if (Size >1)
     {
         Node * TempPtr = FirstElement;
-        bool IsLast = false;
-        while (!IsLast)
+        
+        while (TempPtr->Next != nullptr)
         {
             TempPtr = TempPtr->Next;
-            if (TempPtr->Next == nullptr)
-            {
-                IsLast = true;
-            }
         }
         delete TempPtr;
         TempPtr = nullptr;
@@ -133,8 +125,9 @@ void MyList::RemoveLastElement()
     }
     else
     {
-        std:: cout<< "It is impossible to delete the last element as the lise is already empty \n";
+        std:: cout<< "It is impossible to delete the last element as the list is already empty \n";
     }
+    Size--;
 }
 
 

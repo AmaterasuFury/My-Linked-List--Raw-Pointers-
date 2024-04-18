@@ -5,7 +5,6 @@ struct MyList
 {
 private:
     struct Node;
-    //List();
     
     int Size = 0;
     Node * FirstElement = nullptr;
@@ -18,6 +17,7 @@ public:
     void RemoveValue(int InValue);
     int * Get (int InIndex);
     ~MyList();
+
     
     
     struct Node
