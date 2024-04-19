@@ -98,6 +98,7 @@ void MyList::RemoveFirstElement()
     {
         TempPtr = FirstElement;
         FirstElement = FirstElement->Next;
+        TempPtr->Next = nullptr;
         delete TempPtr;
         TempPtr = nullptr;
     }
@@ -106,18 +107,12 @@ void MyList::RemoveFirstElement()
         delete FirstElement;
         FirstElement = nullptr;
     }
-    else
+    else if (Size == 0)
     {
        std::cout <<  "Impossible to delete the first element, as the list is already empty \n";
+        return;
     }  
-    if(TempPtr != nullptr)
-    {
-        TempPtr = nullptr;
-    }
-    if(Size>=1)
-    {
         Size--;
-    }
 }
 
 void MyList::RemoveLastElement()
