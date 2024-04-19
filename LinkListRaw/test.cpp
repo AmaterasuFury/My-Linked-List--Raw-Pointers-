@@ -14,7 +14,7 @@ int main()
     List.RemoveLastElement();
     List.RemoveFirstElement();
     List.RemoveOnIndex(0);
-
+    
   
   
   // delete List_Ptr;

@@ -125,27 +125,41 @@ void MyList::RemoveLastElement()
     if (Size >1)
     {
         Node * TempPtr = FirstElement;
-        
+        Node * TempPtrToPrevios = FirstElement;
+        int CounterI = 0;
         while (TempPtr->Next != nullptr)
         {
+            if (CounterI != 0)
+            {
+                TempPtrToPrevios = TempPtrToPrevios->Next;
+            }
+            CounterI++;
             TempPtr = TempPtr->Next;
         }
+        TempPtrToPrevios->Next = nullptr;
+        TempPtrToPrevios = nullptr;
         delete TempPtr;
         TempPtr = nullptr;
+        Size--;
+        return;
     }
     else if (Size == 1)
     {
         RemoveFirstElement();
+        return;
     }
     else
     {
         std:: cout<< "It is impossible to delete the last element as the list is already empty \n";
     }
-    Size--;
 }
 
 void MyList::RemoveByValue(int InValue)
 {
+    if (Size == 0)
+    {
+        std:: cout << "Error, the list is empty \n";
+    }
     if (FirstElement->value == InValue)
     {
         RemoveFirstElement();
@@ -167,17 +181,21 @@ void MyList::RemoveByValue(int InValue)
             {
                 TempPtrToPrevious->Next = TempPtrToRemove->Next;
                 delete TempPtrToRemove;
+                TempPtrToRemove = nullptr;
                 TempPtrToPrevious = nullptr;
                 return;
             }
             else
             {
-                TempPtrToRemove = 
+                delete TempPtrToRemove;
+                TempPtrToRemove = nullptr;
+                TempPtrToPrevious->Next = nullptr;
+                TempPtrToPrevious = nullptr;
+                Size--;
+                return;
             }
-            
         }
     }
-    
 }
 
 
