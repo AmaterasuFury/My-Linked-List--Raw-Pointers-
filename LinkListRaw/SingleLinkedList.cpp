@@ -6,17 +6,33 @@
 MyList::~MyList()
 {
     Node * TempPtr = nullptr;
-    while (FirstElement != nullptr)
+    /*
+    if(FirstElement->Next == nullptr)
     {
-        if (FirstElement->Next != nullptr)
+        delete FirstElement;
+        FirstElement = nullptr;
+    }
+    while (FirstElement->Next != nullptr)  // Why it goes here even on the las element?
+    {
+        TempPtr = FirstElement->Next;
+        delete FirstElement;
+        FirstElement = TempPtr;
+    }
+    */
+
+    for (int i = 0; i < Size; ++i)
+    {
+        if (i != Size -1)
         {
             TempPtr = FirstElement->Next;
         }
         
         delete FirstElement;
-        int f = 3;
         FirstElement = TempPtr;
     }
+    
+    //delete FirstElement;
+    std::cout<< &FirstElement;
     FirstElement = nullptr;
     TempPtr = nullptr;
 }
