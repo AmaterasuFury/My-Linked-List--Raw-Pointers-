@@ -9,10 +9,14 @@ int main()
     List.Add(1);
     List.Add(2);
     List.Add(34);
-    //List.RemoveLastElement();
     
     
+    List.RemoveLastElement();
+    List.RemoveFirstElement();
+    List.RemoveOnIndex(0);
 
+  
+  
   // delete List_Ptr;
   return 0;
 }

@@ -31,8 +31,6 @@ MyList::~MyList()
         FirstElement = TempPtr;
     }
     
-    //delete FirstElement;
-    std::cout<< &FirstElement;
     FirstElement = nullptr;
     TempPtr = nullptr;
 }
@@ -144,6 +142,42 @@ void MyList::RemoveLastElement()
         std:: cout<< "It is impossible to delete the last element as the list is already empty \n";
     }
     Size--;
+}
+
+void MyList::RemoveByValue(int InValue)
+{
+    if (FirstElement->value == InValue)
+    {
+        RemoveFirstElement();
+        return;
+    }
+    Node * TempPtrToPrevious = FirstElement;
+    Node * TempPtrToRemove = FirstElement;
+    
+    for (int i = 0; i < Size; ++i)
+    {
+        if (i != 0)
+        {
+            TempPtrToPrevious = TempPtrToPrevious->Next;
+        }
+        TempPtrToRemove = TempPtrToRemove->Next;
+        if (TempPtrToRemove->value == InValue)
+        {
+            if (TempPtrToRemove->Next != nullptr)
+            {
+                TempPtrToPrevious->Next = TempPtrToRemove->Next;
+                delete TempPtrToRemove;
+                TempPtrToPrevious = nullptr;
+                return;
+            }
+            else
+            {
+                TempPtrToRemove = 
+            }
+            
+        }
+    }
+    
 }
 
 
