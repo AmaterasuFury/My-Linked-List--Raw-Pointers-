@@ -14,7 +14,15 @@ public:
     void RemoveOnIndex (int InIndex);
     void RemoveFirstElement();
     void RemoveLastElement();
-    void RemoveValue(int InValue);
+    void RemoveByValue (int InValue);
+    int FindElementOnIndex(int InIndex);    // Check the naming for all of the functions names
+    int FindElementByValue(int InValue);
+    bool CheckIfValueExists (int InValue);
+    void AddEllementToTheEnd(int InValue);
+    void AddElementToTheBegining(int InValue);
+    void AddElementOnIndex (int InValue, int InIndex);
+    void ClearTheList();
+    int  GetSizeOfList();
     int * Get (int InIndex);
     ~MyList();
 
