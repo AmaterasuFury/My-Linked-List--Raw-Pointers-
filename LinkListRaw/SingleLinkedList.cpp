@@ -6,19 +6,6 @@
 MyList::~MyList()
 {
     Node * TempPtr = nullptr;
-    /*
-    if(FirstElement->Next == nullptr)
-    {
-        delete FirstElement;
-        FirstElement = nullptr;
-    }
-    while (FirstElement->Next != nullptr)  // Why it goes here even on the las element?
-    {
-        TempPtr = FirstElement->Next;
-        delete FirstElement;
-        FirstElement = TempPtr;
-    }
-    */
 
     for (int i = 0; i < Size; ++i)
     {
@@ -64,25 +51,36 @@ void MyList::Add(int InValue)
 
 void MyList::RemoveOnIndex(int InIndex)
 {
-    if(Size ==0 || Size == 1)
+    if (Size <= InIndex)
+    {
+        std::cout<< "Impossible to delete the element on index: " << InIndex << ", as the size of the list is: " << Size << "\n";
+        return;
+    }
+    if(Size == 0 || Size == 1)
     {
         RemoveFirstElement();
         return;
     }
+    if (Size-1 == InIndex)
+    {
+        RemoveLastElement();
+    }
     else
     {
         Node * TempPtrToRemove = FirstElement;
-        Node * TempPtrToMoveThePtrToNext = nullptr;
-        for (int i = 0; i <= InIndex; ++i)
+        Node * TempPtrToMoveThePtrToNext = FirstElement;
+        for (int i = 0; i < InIndex; ++i)
         {
             
-            if (i == InIndex-1)
+            if (i != 0)
             {
-                TempPtrToMoveThePtrToNext = TempPtrToRemove;
+                TempPtrToMoveThePtrToNext = TempPtrToMoveThePtrToNext->Next;
             }
             TempPtrToRemove = TempPtrToRemove->Next;
         }
+        
         TempPtrToMoveThePtrToNext->Next = TempPtrToRemove->Next;
+        TempPtrToRemove->Next = nullptr;
         delete TempPtrToRemove;
         TempPtrToRemove = nullptr;
         TempPtrToMoveThePtrToNext = nullptr;
