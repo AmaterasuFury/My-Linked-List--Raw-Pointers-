@@ -343,6 +343,19 @@ void MyList::AddElementToTheBegining(int InValue)
     
 }
 
+void MyList::AddElementOnIndex(int InValue, int InIndex)
+{
+    if (InIndex == 0)
+    {
+        AddElementToTheBegining(InValue);
+        return;
+    }
+    if (InIndex == Size)
+    {
+        
+    }
+}
+
 
 
 
