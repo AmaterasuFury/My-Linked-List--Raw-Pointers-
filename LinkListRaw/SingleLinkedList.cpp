@@ -270,6 +270,7 @@ int MyList::FindElementByValue(int InValue)
     {
         if (TempPtr->value == InValue)
         {
+            TempPtr =  nullptr;
            return i; 
         }
         TempPtr = TempPtr->Next;
@@ -277,6 +278,22 @@ int MyList::FindElementByValue(int InValue)
     TempPtr = nullptr;
     std::cout<< "The entered value: " << InValue << " was not found in the list, please check it \n";
     return -666;
+}
+
+bool MyList::CheckIfValueExists(int InValue)
+{
+    const Node * TempPtr = FirstElement;
+    for (int i = 0; i < Size; ++i)
+    {
+        if (TempPtr->value == InValue)
+        {
+            TempPtr =  nullptr;
+            return true; 
+        }
+        TempPtr = TempPtr->Next;
+    }
+    TempPtr =  nullptr;
+    return false;
 }
 
 

@@ -13,10 +13,13 @@ int main()
     
     //List.RemoveByValue(3);
     //List.RemoveByValue(0);
-  
+    bool kol = false;
     std::cout<< List.FindElementOnIndex(0)<< "\n";
     std::cout<< List.FindElementOnIndex(1)<< "\n";
     std::cout<< List.FindElementByValue(1)<< "\n";
+    std::cout << List.CheckIfValueExists(5)<< "\n";
+    std::cout << List.CheckIfValueExists(1)<< "\n";
+    std::cout << List.CheckIfValueExists(3)<< "\n";
     //std::cout<< List.FindElementOnIndex(3)<< "\n";
     //delete List_Ptr;
   return 0;
