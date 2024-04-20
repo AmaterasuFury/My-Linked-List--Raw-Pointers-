@@ -296,6 +296,23 @@ bool MyList::CheckIfValueExists(int InValue)
     return false;
 }
 
+void MyList::AddElementToTheEnd(int InValue)
+{
+    Node * TempPtr = FirstElement;
+    for (int i = 0; i < Size; ++i)
+    {
+        if (i != 0)
+        {
+            TempPtr = TempPtr->Next;
+        }
+    }
+    Node * NewNode = new Node;
+    TempPtr->Next = NewNode;
+    NewNode->value = InValue;
+    TempPtr = nullptr;
+    Size ++;
+}
+
 
 
 

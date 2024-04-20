@@ -11,15 +11,19 @@ int main()
     List.Add(3);
     // List.Add(34);
     
+    List.AddElementToTheEnd(56);
+    std::cout<< List.FindElementOnIndex(3)<< "\n";
+    List.FindElementOnIndex(4);
     //List.RemoveByValue(3);
     //List.RemoveByValue(0);
-    bool kol = false;
+    /*bool kol = false;
     std::cout<< List.FindElementOnIndex(0)<< "\n";
     std::cout<< List.FindElementOnIndex(1)<< "\n";
     std::cout<< List.FindElementByValue(1)<< "\n";
     std::cout << List.CheckIfValueExists(5)<< "\n";
     std::cout << List.CheckIfValueExists(1)<< "\n";
     std::cout << List.CheckIfValueExists(3)<< "\n";
+    */
     //std::cout<< List.FindElementOnIndex(3)<< "\n";
     //delete List_Ptr;
   return 0;
