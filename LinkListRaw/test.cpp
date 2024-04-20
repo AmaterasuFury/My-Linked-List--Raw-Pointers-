@@ -16,8 +16,8 @@ int main()
   
     std::cout<< List.FindElementOnIndex(0)<< "\n";
     std::cout<< List.FindElementOnIndex(1)<< "\n";
-    std::cout<< List.FindElementOnIndex(2)<< "\n";
-    std::cout<< List.FindElementOnIndex(3)<< "\n";
+    std::cout<< List.FindElementByValue(1)<< "\n";
+    //std::cout<< List.FindElementOnIndex(3)<< "\n";
     //delete List_Ptr;
   return 0;
 }

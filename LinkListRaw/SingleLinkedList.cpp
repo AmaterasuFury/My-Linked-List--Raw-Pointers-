@@ -263,6 +263,22 @@ int MyList::FindElementOnIndex(int InIndex)
     
 }
 
+int MyList::FindElementByValue(int InValue)
+{
+    const Node * TempPtr = FirstElement;
+    for (int i = 0; i < Size; ++i)
+    {
+        if (TempPtr->value == InValue)
+        {
+           return i; 
+        }
+        TempPtr = TempPtr->Next;
+    }
+    TempPtr = nullptr;
+    std::cout<< "The entered value: " << InValue << " was not found in the list, please check it \n";
+    return -666;
+}
+
 
 
 
