@@ -1,6 +1,6 @@
 ﻿#include "SingleLinkedList.h"
 #include <algorithm>
-
+#include <tuple>
 
 
 MyList::~MyList()
@@ -146,7 +146,7 @@ void MyList::RemoveLastElement()
         std:: cout<< "It is impossible to delete the last element as the list is already empty \n";
     }
 }
-
+/*
 void MyList::RemoveByValue(int InValue)
 {
     if (Size == 0)
@@ -190,6 +190,54 @@ void MyList::RemoveByValue(int InValue)
         }
     }
 }
+*/
+
+void MyList::RemoveByValue(int InValue)
+{
+    if (Size == 0)
+    {
+        std:: cout << "Error, the list is empty \n";
+    }
+    else
+    {
+        Node * TempPtrToRemove = FirstElement;
+        Node * TempPtrToPrevious = FirstElement;
+        for (int i = 0; i < Size; ++i)
+        {
+            if (i != 0)
+            {
+                TempPtrToPrevious = TempPtrToPrevious->Next;
+            }
+            if (TempPtrToRemove->value == InValue)
+            {
+                if (i == 0)
+                {
+                    RemoveFirstElement();
+                    return;
+                }
+                TempPtrToRemove = TempPtrToRemove->Next;
+                if (i == Size-1)
+                {
+                    Size--;
+                    // remove the last element
+                    return;
+                }
+                TempPtrToPrevious->Next = TempPtrToRemove->Next;
+                TempPtrToRemove->Next = nullptr;
+                TempPtrToRemove = nullptr;
+                delete TempPtrToRemove;
+                TempPtrToPrevious = nullptr;
+                Size --;
+                return;
+            }
+            
+        }
+    }
+}
+
+
+
+
 
 
 

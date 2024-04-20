@@ -11,12 +11,10 @@ int main()
   List.Add(3);
    // List.Add(34);
     
-  List.RemoveOnIndex(1);
-  List.RemoveLastElement();
-  List.RemoveFirstElement();
-  List.RemoveOnIndex(1);
-  List.RemoveOnIndex(1);
-  List.RemoveOnIndex(0);
+  List.RemoveByValue(0);
+  List.RemoveByValue(0);
+  List.RemoveByValue(0);
+  List.RemoveByValue(0);
   
   
   // delete List_Ptr;
