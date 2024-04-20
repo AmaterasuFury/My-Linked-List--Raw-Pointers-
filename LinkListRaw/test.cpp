@@ -18,6 +18,7 @@ int main()
     List.AddElementToTheBegining(3336);
     std::cout<< "The element on index: 0 is " << List.FindElementOnIndex(0) << "\n";
     std::cout<< "The size of the list is: " << List.GetSizeOfList();
+    List.ClearTheList();
     //List.RemoveByValue(3);
     //List.RemoveByValue(0);
     /*bool kol = false;

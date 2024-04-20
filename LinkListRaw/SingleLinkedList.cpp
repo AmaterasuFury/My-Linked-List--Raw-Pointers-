@@ -3,6 +3,11 @@
 #include <tuple>
 
 
+void MyList::ClearTheList()
+{
+    MyList::~MyList();
+}
+
 int MyList::GetSizeOfList()
 {
     return Size;
