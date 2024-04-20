@@ -204,33 +204,37 @@ void MyList::RemoveByValue(int InValue)
         Node * TempPtrToPrevious = FirstElement;
         for (int i = 0; i < Size; ++i)
         {
-            if (i != 0)
-            {
-                TempPtrToPrevious = TempPtrToPrevious->Next;
-            }
+            
             if (TempPtrToRemove->value == InValue)
             {
                 if (i == 0)
                 {
                     RemoveFirstElement();
+                    TempPtrToRemove = nullptr;
+                    TempPtrToPrevious = nullptr;
                     return;
                 }
-                TempPtrToRemove = TempPtrToRemove->Next;
                 if (i == Size-1)
                 {
                     Size--;
-                    // remove the last element
+                    TempPtrToPrevious->Next = nullptr;
+                    TempPtrToRemove->Next = nullptr;
+                    delete TempPtrToRemove;
                     return;
                 }
                 TempPtrToPrevious->Next = TempPtrToRemove->Next;
                 TempPtrToRemove->Next = nullptr;
-                TempPtrToRemove = nullptr;
                 delete TempPtrToRemove;
+                TempPtrToRemove = nullptr;
                 TempPtrToPrevious = nullptr;
                 Size --;
                 return;
             }
-            
+            if (i != 0)
+            {
+                TempPtrToPrevious = TempPtrToPrevious->Next;
+            }
+            TempPtrToRemove = TempPtrToRemove->Next;
         }
     }
 }

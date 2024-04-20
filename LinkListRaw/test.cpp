@@ -11,7 +11,7 @@ int main()
   List.Add(3);
    // List.Add(34);
     
-  List.RemoveByValue(0);
+  List.RemoveByValue(3);
   List.RemoveByValue(0);
   List.RemoveByValue(0);
   List.RemoveByValue(0);
