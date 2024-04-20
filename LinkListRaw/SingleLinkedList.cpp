@@ -239,6 +239,30 @@ void MyList::RemoveByValue(int InValue)
     }
 }
 
+int MyList::FindElementOnIndex(int InIndex)
+{
+    if (InIndex > Size-1)
+    {
+        std::cout<< "The element on index: " << InIndex << " is impossible to get as the size is: "<< Size << "\n";
+        return -666;
+    }
+    else
+    {
+        const Node * TempPtr = FirstElement;
+        for (int i = 0; i < Size; ++i)
+        {
+            if (i == InIndex)
+            {
+                return TempPtr->value;
+            }
+            TempPtr = TempPtr->Next;
+        }
+        TempPtr = nullptr;
+        return -666;
+    }
+    
+}
+
 
 
 
