@@ -339,8 +339,6 @@ void MyList::AddElementToTheBeginning(int InValue)
         FirstElement->value = InValue;
         Size++;
     }
-    
-    
 }
 
 void MyList::AddElementOnIndex(int InValue, int InIndex)
@@ -353,6 +351,11 @@ void MyList::AddElementOnIndex(int InValue, int InIndex)
     if (InIndex == Size)
     {
         AddElementToTheEnd(InValue);
+        return;
+    }
+    if (InIndex > Size)
+    {
+        std:: cout<< " Cannot add the value on the index: " << InIndex << ", as the size of the list is: " << Size << "\n";
         return;
     }
     else
@@ -376,7 +379,6 @@ void MyList::AddElementOnIndex(int InValue, int InIndex)
         TempPtrToPrevious = nullptr;
         Size++;
     }
-    
 }
 
 
