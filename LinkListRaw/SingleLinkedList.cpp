@@ -23,11 +23,11 @@ MyList::~MyList()
         {
             TempPtr = FirstElement->Next;
         }
-        
+        FirstElement->Next = nullptr;
         delete FirstElement;
         FirstElement = TempPtr;
     }
-    
+    Size = 0;
     FirstElement = nullptr;
     TempPtr = nullptr;
 }
