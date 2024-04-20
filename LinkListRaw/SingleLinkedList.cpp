@@ -3,6 +3,11 @@
 #include <tuple>
 
 
+int MyList::GetSizeOfList()
+{
+    return Size;
+}
+
 MyList::~MyList()
 {
     Node * TempPtr = nullptr;
@@ -310,7 +315,27 @@ void MyList::AddElementToTheEnd(int InValue)
     TempPtr->Next = NewNode;
     NewNode->value = InValue;
     TempPtr = nullptr;
-    Size ++;
+    Size++;
+}
+
+void MyList::AddElementToTheBegining(int InValue)
+{
+    if (FirstElement != nullptr)
+    {
+        Node * TempPtr = new Node;
+        TempPtr->value = InValue;
+        TempPtr->Next = FirstElement;
+        FirstElement = TempPtr;
+        Size++;
+    }
+    else
+    {
+        FirstElement = new Node;
+        FirstElement->value = InValue;
+        Size++;
+    }
+    
+    
 }
 
 
