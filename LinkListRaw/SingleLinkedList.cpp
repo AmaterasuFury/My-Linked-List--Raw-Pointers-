@@ -323,7 +323,7 @@ void MyList::AddElementToTheEnd(int InValue)
     Size++;
 }
 
-void MyList::AddElementToTheBegining(int InValue)
+void MyList::AddElementToTheBeginning(int InValue)
 {
     if (FirstElement != nullptr)
     {
@@ -347,13 +347,36 @@ void MyList::AddElementOnIndex(int InValue, int InIndex)
 {
     if (InIndex == 0)
     {
-        AddElementToTheBegining(InValue);
+        AddElementToTheBeginning(InValue);
         return;
     }
     if (InIndex == Size)
     {
-        
+        AddElementToTheEnd(InValue);
+        return;
     }
+    else
+    {
+        Node * TempPtr = FirstElement;
+        Node * TempPtrToPrevious = FirstElement;
+
+        for (int i = 0; i < InIndex; ++i)
+        {
+            if (i != 0)
+            {
+                TempPtrToPrevious = TempPtrToPrevious->Next;
+            }
+            TempPtr = TempPtr->Next;
+        }
+        Node * NodeToAdd = new Node;
+        NodeToAdd->value = InValue;
+        NodeToAdd->Next = TempPtr;
+        TempPtrToPrevious->Next = NodeToAdd;
+        TempPtr = nullptr;
+        TempPtrToPrevious = nullptr;
+        Size++;
+    }
+    
 }
 
 

@@ -19,13 +19,11 @@ public:
     int FindElementByValue(int InValue);
     bool CheckIfValueExists (int InValue);
     void AddElementToTheEnd(int InValue);
-    void AddElementToTheBegining(int InValue);
+    void AddElementToTheBeginning(int InValue);
     void AddElementOnIndex (int InValue, int InIndex);
     void ClearTheList();
     int  GetSizeOfList();
     ~MyList();
-
-    
     
     struct Node
     {
