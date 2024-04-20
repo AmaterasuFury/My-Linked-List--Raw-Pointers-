@@ -23,7 +23,6 @@ public:
     void AddElementOnIndex (int InValue, int InIndex);
     void ClearTheList();
     int  GetSizeOfList();
-    int * Get (int InIndex);
     ~MyList();
 
     
