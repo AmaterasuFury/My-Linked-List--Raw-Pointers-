@@ -27,7 +27,7 @@ public:
     
     struct Node
     {
-        int value;
+        int value = 0;
         Node* Next = nullptr;
     };
 };
