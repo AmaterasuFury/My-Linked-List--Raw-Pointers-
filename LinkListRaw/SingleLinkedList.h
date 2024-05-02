@@ -16,12 +16,12 @@ public:
     void RemoveLastElement();
     void RemoveByValue (int InValue);
     int FindElementOnIndex(int InIndex);    // Check the naming for all of the functions names
-    int FindElementByValue(int InValue);
-    bool CheckIfValueExists (int InValue);
-    void AddElementToTheEnd(int InValue);
-    void AddElementToTheBeginning(int InValue);
+    int GetIndexByValue(int InValue);
+    bool Contains (int InValue);
+    void PushBack(int InValue);
+    void PushFront(int InValue);
     void AddElementOnIndex (int InValue, int InIndex);
-    void ClearTheList();
+    void Clear();
     int  GetSizeOfList();
     ~MyList();
     

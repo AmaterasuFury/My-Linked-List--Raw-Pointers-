@@ -3,7 +3,7 @@
 #include <tuple>
 
 
-void MyList::ClearTheList()
+void MyList::Clear()
 {
     MyList::~MyList();
 }
@@ -156,51 +156,7 @@ void MyList::RemoveLastElement()
         std:: cout<< "It is impossible to delete the last element as the list is already empty \n";
     }
 }
-/*
-void MyList::RemoveByValue(int InValue)
-{
-    if (Size == 0)
-    {
-        std:: cout << "Error, the list is empty \n";
-    }
-    if (FirstElement->value == InValue)
-    {
-        RemoveFirstElement();
-        return;
-    }
-    Node * TempPtrToPrevious = FirstElement;
-    Node * TempPtrToRemove = FirstElement;
-    
-    for (int i = 0; i < Size; ++i)
-    {
-        if (i != 0)
-        {
-            TempPtrToPrevious = TempPtrToPrevious->Next;
-        }
-        TempPtrToRemove = TempPtrToRemove->Next;
-        if (TempPtrToRemove->value == InValue)
-        {
-            if (TempPtrToRemove->Next != nullptr)
-            {
-                TempPtrToPrevious->Next = TempPtrToRemove->Next;
-                delete TempPtrToRemove;
-                TempPtrToRemove = nullptr;
-                TempPtrToPrevious = nullptr;
-                return;
-            }
-            else
-            {
-                delete TempPtrToRemove;
-                TempPtrToRemove = nullptr;
-                TempPtrToPrevious->Next = nullptr;
-                TempPtrToPrevious = nullptr;
-                Size--;
-                return;
-            }
-        }
-    }
-}
-*/
+
 
 void MyList::RemoveByValue(int InValue)
 {
@@ -273,7 +229,7 @@ int MyList::FindElementOnIndex(int InIndex)
     
 }
 
-int MyList::FindElementByValue(int InValue)
+int MyList::GetIndexByValue(int InValue)
 {
     const Node * TempPtr = FirstElement;
     for (int i = 0; i < Size; ++i)
@@ -290,7 +246,7 @@ int MyList::FindElementByValue(int InValue)
     return -666;
 }
 
-bool MyList::CheckIfValueExists(int InValue)
+bool MyList::Contains(int InValue)
 {
     const Node * TempPtr = FirstElement;
     for (int i = 0; i < Size; ++i)
@@ -306,7 +262,7 @@ bool MyList::CheckIfValueExists(int InValue)
     return false;
 }
 
-void MyList::AddElementToTheEnd(int InValue)
+void MyList::PushBack(int InValue)
 {
     Node * TempPtr = FirstElement;
     for (int i = 0; i < Size; ++i)
@@ -323,7 +279,7 @@ void MyList::AddElementToTheEnd(int InValue)
     Size++;
 }
 
-void MyList::AddElementToTheBeginning(int InValue)
+void MyList::PushFront(int InValue)
 {
     if (FirstElement != nullptr)
     {
@@ -345,12 +301,12 @@ void MyList::AddElementOnIndex(int InValue, int InIndex)
 {
     if (InIndex == 0)
     {
-        AddElementToTheBeginning(InValue);
+        PushFront(InValue);
         return;
     }
     if (InIndex == Size)
     {
-        AddElementToTheEnd(InValue);
+        PushBack(InValue);
         return;
     }
     if (InIndex > Size)
