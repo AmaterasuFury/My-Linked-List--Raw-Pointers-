@@ -4,8 +4,13 @@
 struct MyList
 {
 private:
-    struct Node;
-    
+
+    struct Node
+    {
+        int value = 0;
+        Node* Next = nullptr;
+    };
+
     int Size = 0;
     Node * FirstElement = nullptr;
     
@@ -15,7 +20,7 @@ public:
     void RemoveFirstElement();
     void RemoveLastElement();
     void RemoveByValue (int InValue);
-    int FindElementOnIndex(int InIndex);    // Check the naming for all of the functions names
+    int FindOnIndex(int InIndex);    // Check the naming for all of the functions names
     int GetIndexByValue(int InValue);
     bool Contains (int InValue);
     void PushBack(int InValue);
@@ -23,13 +28,10 @@ public:
     void AddElementOnIndex (int InValue, int InIndex);
     void Clear();
     int  GetSizeOfList();
+    void MyList::SerializeToFile(const std::string InFileName, bool ClearListAfter = false);
+    void MyList::DeserealizeFromFile(const std::string InFileName);
     ~MyList();
     
-    struct Node
-    {
-        int value = 0;
-        Node* Next = nullptr;
-    };
 };
 
 

@@ -1,7 +1,7 @@
 ﻿#include "SingleLinkedList.h"
 #include <algorithm>
 #include <tuple>
-
+#include <fstream>
 
 void MyList::Clear()
 {
@@ -12,6 +12,62 @@ int MyList::GetSizeOfList()
 {
     return Size;
 }
+
+void MyList::SerializeToFile(const std::string InFileName, bool ClearListAfter)
+{
+    if (Size == 0)
+    {
+        std::cout << "Cannot Serialize To File, the list size is 0" << std::endl;
+        return;
+    }
+    std::ofstream outFile(InFileName);
+    if (outFile.is_open())
+    {
+        for (size_t i = 0; i < Size; i++)
+        {
+            outFile << FindOnIndex(i) << " ";
+        }
+    }
+    else
+    {
+        std::cerr << "Failed to create the file \"" << InFileName << "\" for the serealization." << std::endl;
+    }
+    if (ClearListAfter)
+    {
+        Clear();
+    }
+}
+
+void MyList::DeserealizeFromFile(const std::string InFileName)
+{
+    std::ifstream inFile(InFileName); 
+    if (!inFile.is_open())
+    {
+        std::cerr << "Failed to open the file \"" << InFileName << "\" for deserialization." << std::endl;
+        return;
+    }
+
+    Clear();
+
+    int value = -666666666;
+    while (inFile >> value)
+    {
+        Add(value); 
+    }
+
+    if (inFile.eof()) 
+    {
+        std::cout << "Deserialization completed successfully." << std::endl;
+    }
+    else
+    {
+        std::cerr << "Error occurred while reading the file during deserialization." << std::endl;
+    }
+
+    inFile.close();
+}
+
+
 
 MyList::~MyList()
 {
@@ -205,12 +261,12 @@ void MyList::RemoveByValue(int InValue)
     }
 }
 
-int MyList::FindElementOnIndex(int InIndex)
+int MyList::FindOnIndex(int InIndex)
 {
     if (InIndex > Size-1)
     {
         std::cout<< "The element on index: " << InIndex << " is impossible to get as the size is: "<< Size << "\n";
-        return -666;
+        return -666666666;
     }
     else
     {
@@ -224,7 +280,7 @@ int MyList::FindElementOnIndex(int InIndex)
             TempPtr = TempPtr->Next;
         }
         TempPtr = nullptr;
-        return -666;
+        return -666666666;
     }
     
 }
@@ -243,7 +299,7 @@ int MyList::GetIndexByValue(int InValue)
     }
     TempPtr = nullptr;
     std::cout<< "The entered value: " << InValue << " was not found in the list, please check it \n";
-    return -666;
+    return -666666666;
 }
 
 bool MyList::Contains(int InValue)
