@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <iostream>
+#include <vector>
 
 struct MyList
 {
@@ -32,6 +33,37 @@ public:
     void MyList::DeserealizeFromFile(const std::string InFileName);
     ~MyList();
     
+  
 };
+
+template <typename T>
+std::ostream& operator << (std::ostream& os, const std::vector<T>& v)
+{
+    os << v.size() << ' ';
+    for (const T& x : v)
+    {
+        os << x << ' ';
+    }
+
+    return os;
+}
+
+template <typename T> 
+std::istream& operator >> (std::istream& is, std::vector<T>& v)
+{
+    size_t size;
+    is >> size;
+
+    v.clear();
+    v.reserve(size)
+
+    for (size_t i = 0; i < size; ++i)
+    {
+        T x;
+        is >> x;
+        v.push_back(x);
+    }
+    return is;
+}
 
 
