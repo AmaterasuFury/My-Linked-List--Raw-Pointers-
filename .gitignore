@@ -5,3 +5,15 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+.vs/LinkListRaw/FileContentIndex/9036ffff-7525-43a1-aae8-ca3ad619fe3f.vsidx
+.vs/LinkListRaw/v17/.suo
+.vs/LinkListRaw/v17/Browse.VC.db
+.vs/LinkListRaw/v17/DocumentLayout.json
+.vs/LinkListRaw/v17/ipch/AutoPCH/6544a85f22b07ab2/SINGLELINKEDLIST.ipch
+*.ipch
+*.db
+*.user
+.vs/LinkListRaw/FileContentIndex/785e8600-db72-48c8-8fd8-62f6b2b8d174.vsidx
+.vs/LinkListRaw/v17/Browse.VC.db-shm
+.vs/LinkListRaw/v17/Browse.VC.db-wal
+.vs/LinkListRaw/v17/Browse.VC.opendb
