@@ -71,21 +71,18 @@ void MyList::DeserealizeFromFile(const std::string InFileName)
 
 MyList::~MyList()
 {
-    Node * TempPtr = nullptr;
+    Node* TempPtr = nullptr;
 
-    for (int i = 0; i < Size; ++i)
+    while (FirstElement != nullptr)
     {
-        if (i != Size -1)
-        {
-            TempPtr = FirstElement->Next;
-        }
-        FirstElement->Next = nullptr;
+        TempPtr = FirstElement->Next;
         delete FirstElement;
         FirstElement = TempPtr;
     }
+
+
     Size = 0;
     FirstElement = nullptr;
-    TempPtr = nullptr;
 }
   
 void MyList::Add(int InValue)
